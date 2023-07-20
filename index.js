@@ -36,7 +36,9 @@ app.use('/upload', UploadRoutes)
 app.use('/chat', ChatRoute)
 app.use('/message', MessageRoute)
 
-
+app.use('/', (req,res)=>{
+   res.send("API is runnig")
+} )
 
 const connect = async()=>{
    try {
@@ -50,7 +52,7 @@ connect()
 
 
 // mongoose.connect(process.env.MONGO_URL)
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 5647
 app.listen(PORT,(error)=>{
    error ? console.log(error)
    : console.log(`server runnig on port ${PORT}`)
